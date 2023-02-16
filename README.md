@@ -13,6 +13,8 @@ srux <metric> [url]
 |`<metric>`|Required. LCP or CLS or FID or TTFB or INP or FCP|
 |`[url]`|Optional. URL of the page where you want to see CrUX data. If omitted, data for the entire origin|
 
+![screenshot](./screenshot.png)
+
 ### Examples
 
 ```
