@@ -34,7 +34,7 @@ app.message(/^srux/, async ({ message, say }) => {
     return;
   }
 
-  const sanitizedUrl = url ? url.replace('<', '').replace('>', '') : '';
+  const sanitizedUrl = url ? url.replace('<', '').replace('>', '') : ''; // <https://example.com> -> https://example.com
   const params = sanitizedUrl ? { url: sanitizedUrl } : { origin: process.env.ORIGIN };
   const resp = await axios.post(
     `https://chromeuxreport.googleapis.com/v1/records:queryHistoryRecord?key=${process.env.CRUX_API_KEY}`,
