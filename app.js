@@ -2,6 +2,8 @@ const assert = require('assert');
 const { App } = require('@slack/bolt');
 const axios = require('axios').default;
 
+console.log(process.env);
+
 assert(process.env.SLACK_BOT_TOKEN);
 assert(process.env.SLACK_SIGNING_SECRET);
 assert(process.env.CRUX_API_KEY);
