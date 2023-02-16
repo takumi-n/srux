@@ -21,7 +21,8 @@ const metricsMap = {
   INP: 'experimental_interaction_to_next_paint',
 };
 
-app.message(/^srux/, async ({ message, say }) => {
+app.message(/^srux/, async ({ message, say, ack }) => {
+  await ack();
   const [dirtyAcronym, url] = message.text.split(' ').slice(1);
   if (!dirtyAcronym) {
     return;
@@ -33,8 +34,6 @@ app.message(/^srux/, async ({ message, say }) => {
   if (!metric) {
     return;
   }
-
-  await say('Loading...');
 
   const sanitizedUrl = url ? url.replace('<', '').replace('>', '') : ''; // <https://example.com> -> https://example.com
   const params = sanitizedUrl ? { url: sanitizedUrl } : { origin: process.env.ORIGIN };
