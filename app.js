@@ -34,6 +34,8 @@ app.message(/^srux/, async ({ message, say }) => {
     return;
   }
 
+  say('Loading...');
+
   const sanitizedUrl = url ? url.replace('<', '').replace('>', '') : ''; // <https://example.com> -> https://example.com
   const params = sanitizedUrl ? { url: sanitizedUrl } : { origin: process.env.ORIGIN };
   const resp = await axios.post(
