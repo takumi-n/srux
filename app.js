@@ -22,7 +22,6 @@ const metricsMap = {
 };
 
 app.message(/^srux/, async ({ message, say, ack }) => {
-  await ack();
   const [dirtyAcronym, url] = message.text.split(' ').slice(1);
   if (!dirtyAcronym) {
     return;
